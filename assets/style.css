@@ -36,7 +36,7 @@ sidebar{
   left: 0px;
   bottom: 0px;
   top: 75px;
-  width: 150px;
+  width: 70px;
   background-color: white;
   z-index: 200;
   /* padding-top: 5px; */
@@ -69,7 +69,52 @@ sidebar{
   color: var(--darkGray);
 }
 
-/* style main section */
-/* .mainSection{
-  padding-left: 150px;
+.current-city{
+  color: var(--darkGray);
+  /* height: 50%; */
+  display: flexbox;
+  margin: 10px;
+  padding: 6px;
+  margin-left: 12px;
+  border: 2px solid var(--lightGray);
+}
+
+.current-city h1{
+  color: black;
+}
+
+h2{
+  margin: 10px;
+}
+
+
+#five-day-forecast{
+  display: flexbox;
+  height: 58%;
+  margin: 10px;
+  margin-left: 12px;
+  padding: 0;
+  /* border: 2px solid var(--lightGray); */
+}
+
+#forecast-cards{
+  justify-content: space-between;
+}
+
+#forecast-day-one,
+#forecast-day-two,
+#forecast-day-three,
+#forecast-day-four,
+#forecast-day-five {
+  height: 250px;
+  margin: 2px 25px auto auto;
+  display: block;
+  background-color: var(--darkGray);
+}
+
+/* #forecast-day-five{
+  height: 250px;
+  margin-right: 0;
+  display: block;
+  background-color: var(--darkGray); 
 } */
