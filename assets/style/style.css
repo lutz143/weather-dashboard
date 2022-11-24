@@ -62,6 +62,7 @@ sidebar{
 .sidebar-link:hover{
   background-color: rgb(235, 235, 235);
   cursor: pointer;
+  transition: all 0.20s ease-in;
 }
 
 .sidebar-link:active, 
@@ -74,6 +75,7 @@ sidebar{
   color: var(--darkGray);
   /* height: 50%; */
   display: flexbox;
+  height: 49%;
   margin: 10px;
   padding: 6px;
   margin-left: 12px;
@@ -114,11 +116,16 @@ h2{
 #forecast-day-five {
   font-family: var(--muktaFamily);
   height: 250px;
-  margin: 2px 25px auto auto;
+  margin: 5px 1px auto auto;
   padding-top: 8px;
   display: block;
   color: var(--white);
   background-color: var(--darkBlueGray);
+  transition: all 0.25s ease-in;
+}
+
+#forecast-day-one{
+  margin-left: 0;
 }
 
 #forecast-day-one:hover,
@@ -126,18 +133,38 @@ h2{
 #forecast-day-three:hover,
 #forecast-day-four:hover,
 #forecast-day-five:hover {
-  box-shadow: 1px 1px 6px 1px var(--darkBlue);
+  box-shadow: 1px 1px 6px 1px var(--lightBlue);
 }
 
 h5{ 
   font-weight: 500;
 }
 
+#current-city-temp:hover,
+#current-city-wind:hover,
+#current-city-humidity:hover{
+  font-size: 125%;
+  font-weight: 600;
+  transition: all 0.25s ease-in;  
+}
+
+#p-indicator{
+  font-size: 175%;
+  margin: 8px 0 2px 0;
+}
+
+#p-indicator:hover{
+  font-size: 210%;
+  transition: all 0.25s ease-in;  
+}
+
 #p-temp:hover,
 #p-wind:hover,
 #p-humidity:hover{
   font-size: 115%;
-  font-weight: 600;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: all 0.25s ease-in;
 }
 
 /* #forecast-day-five{
