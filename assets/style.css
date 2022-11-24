@@ -6,6 +6,7 @@
   --lightGray: rgba(169, 169, 169, 0.404);
   --darkGray: rgb(143, 143, 143);
   --white: rgba(255, 255, 255, 0.95);
+  --darkBlueGray: rgba(50, 61, 79);
 }
 
 
@@ -36,7 +37,6 @@ sidebar{
   left: 0px;
   bottom: 0px;
   top: 75px;
-  width: 70px;
   background-color: white;
   z-index: 200;
   /* padding-top: 5px; */
@@ -52,21 +52,22 @@ sidebar{
   flex-direction: row; 
 }
 
+.sidebar-link div{
+  font-family: var(--muktaFamily);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--darkGray);
+}
+
 .sidebar-link:hover{
   background-color: rgb(235, 235, 235);
   cursor: pointer;
 }
 
-.sidebar-link img{
-  height: 24px;
-  margin-bottom: 4px;
-}
-
-.sidebar-link div{
-  font-family: var(--muktaFamily);
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--darkGray);
+.sidebar-link:active, 
+.sidebar-link:active > div{
+  background-color: var(--darkGray);
+  color: var(--white);
 }
 
 .current-city{
@@ -79,12 +80,17 @@ sidebar{
   border: 2px solid var(--lightGray);
 }
 
+.current-city:hover{
+  box-shadow: 1px 1px 2px 1px var(--lightGray);
+}
+
 .current-city h1{
   color: black;
 }
 
 h2{
   margin: 10px;
+  padding: 12px 0 12px;
 }
 
 
@@ -106,10 +112,32 @@ h2{
 #forecast-day-three,
 #forecast-day-four,
 #forecast-day-five {
+  font-family: var(--muktaFamily);
   height: 250px;
   margin: 2px 25px auto auto;
+  padding-top: 8px;
   display: block;
-  background-color: var(--darkGray);
+  color: var(--white);
+  background-color: var(--darkBlueGray);
+}
+
+#forecast-day-one:hover,
+#forecast-day-two:hover,
+#forecast-day-three:hover,
+#forecast-day-four:hover,
+#forecast-day-five:hover {
+  box-shadow: 1px 1px 6px 1px var(--darkBlue);
+}
+
+h5{ 
+  font-weight: 500;
+}
+
+#p-temp:hover,
+#p-wind:hover,
+#p-humidity:hover{
+  font-size: 115%;
+  font-weight: 600;
 }
 
 /* #forecast-day-five{
