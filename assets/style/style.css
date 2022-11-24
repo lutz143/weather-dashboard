@@ -69,6 +69,7 @@ sidebar{
 .sidebar-link:active > div{
   background-color: var(--darkGray);
   color: var(--white);
+  transition: all 0.05s ease-in;
 }
 
 .current-city{

@@ -1,7 +1,12 @@
-.search-container{
-  display: flex;
-  margin: 5px 50px;
+.hide{
   display: none;
+  /* display: flex; */
+}
+
+#search-container{
+  /* display: flex; */
+
+  margin: 5px 50px;
 }
 
 .search-bar{
