@@ -39,7 +39,6 @@ sidebar{
   top: 75px;
   background-color: white;
   z-index: 200;
-  /* padding-top: 5px; */
 }
 
 .sidebar-link{
@@ -50,6 +49,10 @@ sidebar{
   align-items: center;
   justify-content: center; 
   flex-direction: row; 
+}
+
+.sidebar-link:first-child{
+  margin-top: 12px;
 }
 
 .sidebar-link div{
@@ -162,7 +165,7 @@ h5{
 #p-temp:hover,
 #p-wind:hover,
 #p-humidity:hover{
-  font-size: 115%;
+  font-size: 110%;
   text-decoration: underline;
   font-weight: 500;
   transition: all 0.25s ease-in;
