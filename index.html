@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500&display=swap" rel="stylesheet">
-  <title>Document</title>
+  <title>Weather Dashboard</title>
 </head>
 <body>
   <header>
@@ -18,8 +18,10 @@
       <span class="mb-0 h1" id="headerSpan">Weather Dashboard</span>
     </nav>
     <div class="hide" id="search-container">
-      <input class="search-bar" type="textbox" placeholder="Search for a City" style="display: none;">
-      <button class="search-button"></button>
+      <input class="search-bar" type="input" placeholder="Search for a City" style="display: none;">
+      <button class="search-button">
+        <img class="search-icon" src="./assets/images/search.svg">
+      </button>
     </div>
   </header>
 
@@ -32,7 +34,7 @@
               <div class="sidebar-link"  id="search-button">       
                 <div>Search</div>
               </div>
-              <div class="sidebar-link">
+              <div class="sidebar-link" id="clear-button">
                 <!-- <img src="icons/explore.svg"> -->
                 <div>Clear</div>
               </div>
