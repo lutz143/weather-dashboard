@@ -1,23 +1,34 @@
 console.log('up and ready');
 var sideBarEl = $(".sidebar");
-var searchCities = [];
+var sideBarLinkEl = document.querySelector("#sidebar-link-city");
+var searchBarEl = document.querySelector("#search-container");
 
-function renderCities(){
+var searchCities = [];
+console.log(searchCities.length);
+// console.log(sideBarLinkEl);
+
+
+
+function renderCities(){  
+  var cityNodeEl = document.createElement('div');   
+  var cityNodeText = document.createElement('div');
+
+  cityNodeEl.setAttribute('class', 'sidebar-link');
+  cityNodeEl.setAttribute('id', 'sidebar-link-city'); 
+  cityNodeText.setAttribute('id', 'saved-city')
+
   for (var i=0; i<searchCities.length; i++) {
     var searchCity = searchCities[i];
+    
+    console.log(searchCity);
 
-    var cityNodeEl = document.createElement('div');
-    cityNodeEl.setAttribute('class', 'sidebar-link');
-    var cityNodeText = document.createElement('div');
     cityNodeText.textContent = searchCity;
 
     sideBarEl.append(cityNodeEl);
     cityNodeEl.append(cityNodeText);
   }
-}
 
-// render cities to the text area from localStorage
-$('#sidebar-link').val(localStorage.getItem('Salem'));
+}
 
 $("#search-button").on("click", function(){
   console.log('side bar button clicked!');
@@ -30,7 +41,34 @@ $("#search-button").on("click", function(){
   } else {
     searchBarEl.style.display = "block";
     hideEl.style.display = "flex";
+    searchBarEl.focus();
   }
+})
+
+searchBarEl.addEventListener("keypress", function(event) {
+  var sideBarLinkEl = document.querySelector("#sidebar-link-city");
+
+  if(event.key == 'Enter') {
+    var searchBarEl = document.querySelector('.search-bar');
+    var searchCity = $(".search-bar").val();
+
+    if (searchCity === ''){
+      return;
+    }
+    console.log('enter button pressed!');
+    
+    searchCities.push(searchCity);     
+    storeCities();
+    renderCities();
+    searchBarEl.value = "";
+  }
+})
+
+$(document).ready(function() {
+  $("#clear-button").on("click", function(){
+    localStorage.clear();
+    location.reload();
+  })
 })
 
 function storeCities() {
@@ -42,28 +80,14 @@ $(document).ready(function() {
   $(".search-icon").on("click", function(event){
     event.preventDefault();
     console.log('search button clicked!');
+    var searchBarEl = document.querySelector('.search-bar');
     var searchCity = $(".search-bar").val();
     // var searchCityState = 'Ohio';
     searchCities.push(searchCity);
-
-    // localStorage.setItem(searchCity, searchCityState);
-
-    // var cityNodeEl = document.createElement('div');
-    // cityNodeEl.setAttribute('class', 'sidebar-link');
-    // var cityNodeText = document.createElement('div');
-    // cityNodeText.textContent = searchCity;
-
-    // sideBarEl.append(cityNodeEl);
-    // cityNodeEl.append(cityNodeText);
     storeCities();
     renderCities();
-  })
-})
-
-$(document).ready(function() {
-  $("#clear-button").on("click", function(){
-    localStorage.clear();
-    location.reload();
+    // searchCities = [];
+    searchBarEl.value = "";
   })
 })
 
@@ -77,8 +101,22 @@ function init() {
     searchCities = storedSearchCities;
   }
 
-  // This is a helper function that will render todos to the DOM
-  renderCities();
+  for (var i=0; i<searchCities.length; i++) {
+    var searchCity = searchCities[i];
+    var cityNodeEl = document.createElement('div');   
+    var cityNodeText = document.createElement('div');
+  
+    cityNodeEl.setAttribute('class', 'sidebar-link');
+    cityNodeEl.setAttribute('id', 'sidebar-link-city'); 
+    cityNodeText.setAttribute('id', 'saved-city')
+    
+    console.log(searchCity);
+
+    cityNodeText.textContent = searchCity;
+
+    sideBarEl.append(cityNodeEl);
+    cityNodeEl.append(cityNodeText);
+  }
 }
 
 
