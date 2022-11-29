@@ -1,13 +1,9 @@
-console.log('up and ready');
+console.log('search up and ready');
 var sideBarEl = $(".sidebar");
 var sideBarLinkEl = document.querySelector("#sidebar-link-city");
 var searchBarEl = document.querySelector("#search-container");
 
 var searchCities = [];
-console.log(searchCities.length);
-// console.log(sideBarLinkEl);
-
-
 
 function renderCities(){  
   var cityNodeEl = document.createElement('div');   
@@ -16,12 +12,10 @@ function renderCities(){
   cityNodeEl.setAttribute('class', 'sidebar-link');
   cityNodeEl.setAttribute('id', 'sidebar-link-city'); 
   cityNodeText.setAttribute('id', 'saved-city')
+  cityNodeText.setAttribute('data-id', searchCity)
 
   for (var i=0; i<searchCities.length; i++) {
     var searchCity = searchCities[i];
-    
-    console.log(searchCity);
-
     cityNodeText.textContent = searchCity;
 
     sideBarEl.append(cityNodeEl);
@@ -109,8 +103,7 @@ function init() {
     cityNodeEl.setAttribute('class', 'sidebar-link');
     cityNodeEl.setAttribute('id', 'sidebar-link-city'); 
     cityNodeText.setAttribute('id', 'saved-city')
-    
-    console.log(searchCity);
+    cityNodeText.setAttribute('data-id', searchCity)
 
     cityNodeText.textContent = searchCity;
 
