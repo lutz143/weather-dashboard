@@ -2,12 +2,32 @@ console.log("fetch up and ready");
 const h1CurrentCityEl = document.getElementById("h1-current-city");
 const today = dayjs().format('dddd, MMMM D, YYYY');
 const today2 = dayjs()
+var searchCity = $(".search-bar").val();
 
-console.log(today);
-console.log(today2);
+var searchLocationUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=Columbus,Ohio&limit=5&appid=e03ebc5edf6a5fc04467ffe0e3c896b7';
+var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=39.0288&lon=77.6253&appid=e03ebc5edf6a5fc04467ffe0e3c896b7';
+console.log(searchCity);
 
-console.log(h1CurrentCityEl.textContent);
-var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=e03ebc5edf6a5fc04467ffe0e3c896b7';
+function getLocation() {
+  fetch(searchLocationUrl)
+    .then(function(response){
+      return response.json();
+    })
+    .then(function(data) {
+      console.log(data);
+    })
+  }
+
+getLocation();
+
+
+
+
+
+
+
+
+
 
 
 // capture the value of the saved city in the sidebar if clicked
@@ -45,11 +65,11 @@ function getApi() {
       for (var i = 0; i < data.list.length; i++) {
     
         var listDateTime = data.list[i].dt_txt;
-        var listDate = data.list[i].dt_txt.substring(0,10);        
+        var listDate = data.list[i].dt_txt.substring(0,10);    
 
         if (listDate>currentWeatherDate && listDateTime.substring(listDateTime.length - 8)=='12:00:00') {
           dates.push(1);
-          console.log(listDateTime);         
+          console.log(listDateTime);
           console.log(dates.length);
 
           if (dates.length < 5) {
@@ -74,7 +94,7 @@ function getApi() {
 
 getApi();
 
-// function init() {    
-// }
+function init() {    
+}
 
-// init();
+init();
