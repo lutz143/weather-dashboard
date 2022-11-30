@@ -6,8 +6,7 @@ const today2 = dayjs()
 
 const apiKey = "e03ebc5edf6a5fc04467ffe0e3c896b7";
 var searchLocationRoot = 'http://api.openweathermap.org/geo/1.0/direct?q='
-var requestUrlRoot = 'https://api.openweathermap.org/data/2.5/forecast?lat=';
-// var requestUrlRoot = 'https://api.openweathermap.org/data/2.5/forecast?lat=39.0288&lon=77.6253&appid=e03ebc5edf6a5fc04467ffe0e3c896b7';
+var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=39.0288&lon=77.6253&appid=e03ebc5edf6a5fc04467ffe0e3c896b7';
 
 
 function getLocation() {
@@ -34,74 +33,10 @@ function getLocation() {
         console.log(lat);
         console.log(lon);
 
-
-        function getApi() {
-          var requestUrl = requestUrlRoot + lat + '&lon=' + lon + '&appid=' + apiKey
-          
-          
-          fetch(requestUrl)
-            .then(function(response){
-              return response.json();
-            })
-            .then(function(data) {
-              console.log(data);
-        
-              var city = data.city.name;
-              var currentWeatherDateTime = data.list[0].dt_txt;
-              var currentWeatherDate = data.list[0].dt_txt.substring(0,10);
-              var currentWeatherTemp = data.list[0].main.temp;
-              var currentWeatherWind = data.list[0].wind.speed;
-              var currentWeatherHumidity = data.list[0].main.humidity;
-              console.log("City: " + city);
-              console.log("DateTime: " + currentWeatherDateTime);
-              console.log("Date: " + currentWeatherDate);
-              console.log("Temp: " + currentWeatherTemp);
-              console.log("Wind speed: " + currentWeatherWind);
-              console.log("Humidity: " + currentWeatherHumidity);
-        
-              h1CurrentCityEl.textContent = city + ' ' + currentWeatherDate;
-              var dates = []
-        
-              for (var i = 0; i < data.list.length; i++) {
-            
-                var listDateTime = data.list[i].dt_txt;
-                var listDate = data.list[i].dt_txt.substring(0,10);    
-        
-                if (listDate>currentWeatherDate && listDateTime.substring(listDateTime.length - 8)=='12:00:00') {
-                  dates.push(1);
-                  console.log(listDateTime);
-                  console.log(dates.length);
-        
-                  if (dates.length < 5) {
-                    console.log('not enough forecast days');
-                  }
-        
-                }
-        
-        
-              //   h1CurrentCityEl.textContent = "Test";
-              //   // urlLink.textContent = data[i].url;
-              //   // urlLink.setAttribute('href', data[i].url);
-              //   // urlLink.setAttribute('target', '_blank');
-        
-              //   // userContainer.append(userName);
-              //   // userContainer.append(url);
-              //   // url.append(urlLink);
-              }
-            })   
-        } 
-        })
-        getApi();
-
-
-
-
-
       })
-
-      
     });
-  };
+  });
+}
 
 getLocation();
 
@@ -110,6 +45,59 @@ getLocation();
 
 
 
+// function getApi() {
+//   fetch(requestUrl)
+//     .then(function(response){
+//       return response.json();
+//     })
+//     .then(function(data) {
+//       console.log(data);
+
+//       var city = data.city.name;
+//       var currentWeatherDateTime = data.list[0].dt_txt;
+//       var currentWeatherDate = data.list[0].dt_txt.substring(0,10);
+//       var currentWeatherTemp = data.list[0].main.temp;
+//       var currentWeatherWind = data.list[0].wind.speed;
+//       var currentWeatherHumidity = data.list[0].main.humidity;
+//       console.log("City: " + city);
+//       console.log("DateTime: " + currentWeatherDateTime);
+//       console.log("Date: " + currentWeatherDate);
+//       console.log("Temp: " + currentWeatherTemp);
+//       console.log("Wind speed: " + currentWeatherWind);
+//       console.log("Humidity: " + currentWeatherHumidity);
+
+//       h1CurrentCityEl.textContent = city + ' ' + currentWeatherDate;
+//       var dates = []
+
+//       for (var i = 0; i < data.list.length; i++) {
+    
+//         var listDateTime = data.list[i].dt_txt;
+//         var listDate = data.list[i].dt_txt.substring(0,10);    
+
+//         if (listDate>currentWeatherDate && listDateTime.substring(listDateTime.length - 8)=='12:00:00') {
+//           dates.push(1);
+//           console.log(listDateTime);
+//           console.log(dates.length);
+
+//           if (dates.length < 5) {
+//             console.log('not enough forecast days');
+//           }
+
+//         }
+
+
+//       //   h1CurrentCityEl.textContent = "Test";
+//       //   // urlLink.textContent = data[i].url;
+//       //   // urlLink.setAttribute('href', data[i].url);
+//       //   // urlLink.setAttribute('target', '_blank');
+
+//       //   // userContainer.append(userName);
+//       //   // userContainer.append(url);
+//       //   // url.append(urlLink);
+//       }
+//     })   
+  
+// }
 
 // getApi();
 
