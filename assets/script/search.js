@@ -1,4 +1,3 @@
-console.log('search up and ready');
 var sideBarEl = $(".sidebar");
 var sideBarLinkEl = document.querySelector("#sidebar-link-city");
 var searchBarEl = document.querySelector("#search-container");
@@ -25,7 +24,6 @@ function renderCities(){
 }
 
 $("#search-button").on("click", function(){
-  console.log('side bar button clicked!');
   var searchBarEl = document.querySelector('.search-bar');
   var hideEl = document.querySelector('.hide');
 
@@ -49,7 +47,6 @@ searchBarEl.addEventListener("keypress", function(event) {
     if (searchCity === ''){
       return;
     }
-    console.log('enter button pressed!');
     
     searchCities.push(searchCity);
     selectedCity = searchCity;
@@ -79,7 +76,6 @@ function storeCities() {
 
 $(document).ready(function() {
   $(".search-icon").on("click", function(){
-    console.log('search button clicked!');
     var searchBarEl = document.querySelector('.search-bar');
     var searchCity = $(".search-bar").val();
     // var searchCityState = 'Ohio';

@@ -1,4 +1,3 @@
-console.log("render up and ready");
 const h1CurrentCityEl = document.getElementById("h1-current-city");
 const currentTempEl = document.getElementById("current-city-temp");
 const currentWindEl = document.getElementById("current-city-wind");
@@ -108,8 +107,6 @@ function renderWeather() {
       forecastThreeDate.textContent = displayDates[2];
       forecastFourDate.textContent = displayDates[3];
       forecastFiveDate.textContent = displayDates[4];
-
-      console.log(weatherInds);
 
       forecastOneInd.src = "./assets/images/weatherIcons/" + weatherInds[0] + ".png";
       forecastTwoInd.src = "./assets/images/weatherIcons/" + weatherInds[1] + ".png";

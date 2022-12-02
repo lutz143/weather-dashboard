@@ -124,7 +124,8 @@ h2{
 #forecast-day-five {
   font-family: var(--muktaFamily);
   height: 300px;
-  margin: 5px 1px auto auto;
+  margin-right: 15px;
+  margin-top: 5px;
   padding-top: 12px;
   display: block;
   color: var(--white);
