@@ -59,9 +59,6 @@ var forecastFourHumidity = forecastFourHumidity.querySelector("#p-humidity");
 var forecastFiveHumidity = document.querySelector("#forecast-day-five");
 var forecastFiveHumidity = forecastFiveHumidity.querySelector("#p-humidity");
 
-const today = dayjs().format('dddd, MMMM D, YYYY');
-const today2 = dayjs()
-
 
 const apiKey = "e03ebc5edf6a5fc04467ffe0e3c896b7";
 var searchLocationRoot = 'http://api.openweathermap.org/geo/1.0/direct?q='

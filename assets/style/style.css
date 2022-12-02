@@ -106,7 +106,6 @@ h2{
   margin: 10px;
   margin-left: 12px;
   padding: 0;
-  /* border: 2px solid var(--lightGray); */
 }
 
 #img-icon{
@@ -126,7 +125,7 @@ h2{
   font-family: var(--muktaFamily);
   height: 300px;
   margin: 5px 1px auto auto;
-  padding-top: 8px;
+  padding-top: 12px;
   display: block;
   color: var(--white);
   background-color: var(--darkBlueGray);
@@ -171,10 +170,3 @@ h5{
   font-weight: 500;
   transition: all 0.25s ease-in;
 }
-
-/* #forecast-day-five{
-  height: 250px;
-  margin-right: 0;
-  display: block;
-  background-color: var(--darkGray); 
-} */
