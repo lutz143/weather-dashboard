@@ -16,7 +16,15 @@ var forecastFiveDate = document.querySelector("#forecast-day-five");
 var forecastFiveDate = forecastFiveDate.querySelector("h5");
 
 var forecastOneInd = document.querySelector("#forecast-day-one");
-var forecastOneInd = forecastOneInd.querySelector("#p-indicator");
+var forecastOneInd = forecastOneInd.querySelector("#img-icon");
+var forecastTwoInd = document.querySelector("#forecast-day-two");
+var forecastTwoInd = forecastTwoInd.querySelector("#img-icon");
+var forecastThreeInd = document.querySelector("#forecast-day-three");
+var forecastThreeInd = forecastThreeInd.querySelector("#img-icon");
+var forecastFourInd = document.querySelector("#forecast-day-four");
+var forecastFourInd = forecastFourInd.querySelector("#img-icon");
+var forecastFiveInd = document.querySelector("#forecast-day-five");
+var forecastFiveInd = forecastFiveInd.querySelector("#img-icon");
 
 var forecastOneTemp = document.querySelector("#forecast-day-one");
 var forecastOneTemp = forecastOneTemp.querySelector("#p-temp");
@@ -103,6 +111,7 @@ function getLocation() {
           currentHumidityEl.textContent = "Humidity: " + currentWeatherHumidity + "%";
 
           var displayDates = [];
+          var weatherInds = [];
           var temps = [];
           var winds = [];
           var humids = [];
@@ -110,6 +119,7 @@ function getLocation() {
           for (var i = 0; i < data.list.length; i++) {
         
             var listDateTime = data.list[i].dt_txt;
+            var weathInd1 = data.list[i].weather[0].icon;
             var listDate = data.list[i].dt_txt.substring(0,10);
               var year1 = listDate.substring(0,4);
               var month1 = listDate.substring(5,7);
@@ -119,9 +129,10 @@ function getLocation() {
             var wind1 = Math.round(data.list[i].wind.speed * 10) / 10;
             var humid1 = data.list[i].main.humidity;
     
-            if (listDate>currentWeatherDate && listDateTime.substring(listDateTime.length - 8)=='12:00:00') {
+            if (listDate>currentWeatherDate && listDateTime.substring(listDateTime.length - 8)=='15:00:00') {
 
               displayDates.push(displayDate);
+              weatherInds.push(weathInd1);
               temps.push(temp1);
               winds.push(wind1);
               humids.push(humid1);
@@ -131,6 +142,14 @@ function getLocation() {
               forecastThreeDate.textContent = displayDates[2];
               forecastFourDate.textContent = displayDates[3];
               forecastFiveDate.textContent = displayDates[4];
+
+              console.log(weatherInds);
+
+              forecastOneInd.src = "./assets/images/weatherIcons/" + weatherInds[0] + ".png";
+              forecastTwoInd.src = "./assets/images/weatherIcons/" + weatherInds[1] + ".png";
+              forecastThreeInd.src = "./assets/images/weatherIcons/" + weatherInds[2] + ".png";
+              forecastFourInd.src = "./assets/images/weatherIcons/" + weatherInds[3] + ".png";
+              forecastFiveInd.src = "./assets/images/weatherIcons/" + weatherInds[4] + ".png";
               
               forecastOneTemp.textContent = "Temp: " + temps[0] + "\u00b0F";
               forecastTwoTemp.textContent = "Temp: " + temps[1] + "\u00b0F";

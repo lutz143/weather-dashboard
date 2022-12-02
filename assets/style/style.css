@@ -109,6 +109,11 @@ h2{
   /* border: 2px solid var(--lightGray); */
 }
 
+#img-icon{
+  width: 50px;
+  margin-bottom: 5px;
+}
+
 #forecast-cards{
   justify-content: space-between;
 }
@@ -119,7 +124,7 @@ h2{
 #forecast-day-four,
 #forecast-day-five {
   font-family: var(--muktaFamily);
-  height: 250px;
+  height: 300px;
   margin: 5px 1px auto auto;
   padding-top: 8px;
   display: block;
@@ -152,13 +157,9 @@ h5{
   transition: all 0.25s ease-in;  
 }
 
-#p-indicator{
-  font-size: 175%;
-  margin: 8px 0 2px 0;
-}
 
-#p-indicator:hover{
-  font-size: 210%;
+#img-icon:hover{
+  width: 60px;
   transition: all 0.25s ease-in;  
 }
 
