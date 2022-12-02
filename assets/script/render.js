@@ -59,15 +59,17 @@ var forecastFourHumidity = forecastFourHumidity.querySelector("#p-humidity");
 var forecastFiveHumidity = document.querySelector("#forecast-day-five");
 var forecastFiveHumidity = forecastFiveHumidity.querySelector("#p-humidity");
 
+
+
 function renderWeather() {
-  var city = data.city.name;
-  var currentWeatherDate = data.list[0].dt_txt.substring(0,10);
+  var city = cityData[0].name;
+  var currentWeatherDate = fetchData.list[0].dt_txt.substring(0,10);
     var currentYear = currentWeatherDate.substring(0,4);
     var currentMonth = currentWeatherDate.substring(5,7);
     var currentDay = currentWeatherDate.substring(8,10);
-  var currentWeatherTemp = Math.round(data.list[0].main.temp * 10) / 10;
-  var currentWeatherWind = data.list[0].wind.speed;
-  var currentWeatherHumidity = data.list[0].main.humidity;
+  var currentWeatherTemp = Math.round(fetchData.list[0].main.temp * 10) / 10;
+  var currentWeatherWind = fetchData.list[0].wind.speed;
+  var currentWeatherHumidity = fetchData.list[0].main.humidity;
 
   h1CurrentCityEl.textContent = city + ' ' + currentMonth + "/" + currentDay + "/" + currentYear;
   currentTempEl.innerHTML = "Temp: " + currentWeatherTemp + "\u00b0F";
@@ -80,18 +82,18 @@ function renderWeather() {
   var winds = [];
   var humids = [];
 
-  for (var i = 0; i < data.list.length; i++) {
+  for (var i = 0; i < fetchData.list.length; i++) {
 
-    var listDateTime = data.list[i].dt_txt;
-    var weathInd1 = data.list[i].weather[0].icon;
-    var listDate = data.list[i].dt_txt.substring(0,10);
+    var listDateTime = fetchData.list[i].dt_txt;
+    var weathInd1 = fetchData.list[i].weather[0].icon;
+    var listDate = fetchData.list[i].dt_txt.substring(0,10);
       var year1 = listDate.substring(0,4);
       var month1 = listDate.substring(5,7);
       var day1 = listDate.substring(8,10);
       var displayDate = month1 + "/" + day1 + "/" + year1;
-    var temp1 = Math.round(data.list[i].main.temp * 10) / 10;
-    var wind1 = Math.round(data.list[i].wind.speed * 10) / 10;
-    var humid1 = data.list[i].main.humidity;
+    var temp1 = Math.round(fetchData.list[i].main.temp * 10) / 10;
+    var wind1 = Math.round(fetchData.list[i].wind.speed * 10) / 10;
+    var humid1 = fetchData.list[i].main.humidity;
 
     if (listDate>currentWeatherDate && listDateTime.substring(listDateTime.length - 8)=='15:00:00') {
 
