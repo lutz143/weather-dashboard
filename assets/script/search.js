@@ -51,10 +51,15 @@ searchBarEl.addEventListener("keypress", function(event) {
     }
     console.log('enter button pressed!');
     
-    searchCities.push(searchCity);     
+    searchCities.push(searchCity);
+    selectedCity = searchCity;
+    selectedCity = selectedCity.replace(" ", "").trim();
     storeCities();
     renderCities();
     searchBarEl.value = "";
+
+    // getWeather();
+    location.reload();
   }
 })
 
@@ -68,20 +73,25 @@ $(document).ready(function() {
 function storeCities() {
   // Stringify and set key in localStorage to todos array
   localStorage.setItem("searchCities", JSON.stringify(searchCities));
+  localStorage.setItem("selectedCity", JSON.stringify(selectedCity));
+
 }
 
 $(document).ready(function() {
-  $(".search-icon").on("click", function(event){
-    event.preventDefault();
+  $(".search-icon").on("click", function(){
     console.log('search button clicked!');
     var searchBarEl = document.querySelector('.search-bar');
     var searchCity = $(".search-bar").val();
     // var searchCityState = 'Ohio';
     searchCities.push(searchCity);
+    selectedCity = searchCity;
+    selectedCity = selectedCity.replace(" ", "").trim();
     storeCities();
     renderCities();
-    // searchCities = [];
     searchBarEl.value = "";
+    
+    // getWeather();
+    location.reload();
   })
 })
 
@@ -89,6 +99,7 @@ $(document).ready(function() {
 function init() {
   // Get stored todos from localStorage
   var storedSearchCities = JSON.parse(localStorage.getItem("searchCities"));
+  selectedCity = JSON.parse(localStorage.getItem("selectedCity"));
 
   // If todos were retrieved from localStorage, update the todos array to it
   if (storedSearchCities !== null) {
@@ -108,16 +119,9 @@ function init() {
     cityNodeText.textContent = searchCity;
 
     sideBarEl.append(cityNodeEl);
-    cityNodeEl.append(cityNodeText);
-  }
+    cityNodeEl.append(cityNodeText);    
+  }  
 }
 
-
-function handleFormSubmit(event) {
-  event.preventDefault();
-
-  $(function () {
-  });
-}
 
 init();
