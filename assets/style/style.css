@@ -48,7 +48,8 @@ sidebar{
   display: flex;
   align-items: center;
   justify-content: center; 
-  flex-direction: row; 
+  flex-direction: row;
+  text-align: center;
 }
 
 .sidebar-link:first-child{
@@ -142,7 +143,7 @@ h2{
 #forecast-day-three:hover,
 #forecast-day-four:hover,
 #forecast-day-five:hover {
-  box-shadow: 1px 1px 6px 1px var(--lightBlue);
+  box-shadow: 1px 1px 20px 1px var(--lightBlue);
 }
 
 h5{ 
@@ -170,4 +171,14 @@ h5{
   text-decoration: underline;
   font-weight: 500;
   transition: all 0.25s ease-in;
+}
+
+@media screen and (max-width: 750px) {
+  #headerSpan{
+    font-size: 1.8em;
+  }
+
+  .current-city{
+    height: auto;
+  }
 }

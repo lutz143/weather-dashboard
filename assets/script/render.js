@@ -1,4 +1,5 @@
 const h1CurrentCityEl = document.getElementById("h1-current-city");
+const currentIndEl = document.getElementById("current-img-icon");
 const currentTempEl = document.getElementById("current-city-temp");
 const currentWindEl = document.getElementById("current-city-wind");
 const currentHumidityEl = document.getElementById("current-city-humidity");
@@ -61,16 +62,22 @@ var forecastFiveHumidity = forecastFiveHumidity.querySelector("#p-humidity");
 
 
 function renderWeather() {
+  console.log(fetchData);
   var city = cityData[0].name;
   var currentWeatherDate = fetchData.list[0].dt_txt.substring(0,10);
     var currentYear = currentWeatherDate.substring(0,4);
     var currentMonth = currentWeatherDate.substring(5,7);
     var currentDay = currentWeatherDate.substring(8,10);
+  
+
   var currentWeatherTemp = Math.round(fetchData.list[0].main.temp * 10) / 10;
+  var currentInd = fetchData.list[0].weather[0].icon;
+  console.log(currentInd);
   var currentWeatherWind = fetchData.list[0].wind.speed;
   var currentWeatherHumidity = fetchData.list[0].main.humidity;
 
   h1CurrentCityEl.textContent = city + ' ' + currentMonth + "/" + currentDay + "/" + currentYear;
+  currentIndEl.src = "./assets/images/weatherIcons/" + currentInd + ".png";
   currentTempEl.innerHTML = "Temp: " + currentWeatherTemp + "\u00b0F";
   currentWindEl.textContent = "Wind: " + currentWeatherWind + "mph";
   currentHumidityEl.textContent = "Humidity: " + currentWeatherHumidity + "%";
