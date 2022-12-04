@@ -101,7 +101,7 @@ function renderWeather() {
     var wind1 = Math.round(fetchData.list[i].wind.speed * 10) / 10;
     var humid1 = fetchData.list[i].main.humidity;
 
-    if (listDate>currentWeatherDate && listDateTime.substring(listDateTime.length - 8)=='15:00:00') {
+    if (listDate>currentWeatherDate && listDateTime.substring(listDateTime.length - 8)=='12:00:00') {
 
       displayDates.push(displayDate);
       weatherInds.push(weathInd1);
