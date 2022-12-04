@@ -1,5 +1,5 @@
 const apiKey = "e03ebc5edf6a5fc04467ffe0e3c896b7";
-var searchLocationRoot = 'http://api.openweathermap.org/geo/1.0/direct?q='
+var searchLocationRoot = 'https://api.openweathermap.org/geo/1.0/direct?q='
 var requestUrlRoot = 'https://api.openweathermap.org/data/2.5/forecast?lat=';
 
 var cityData = {};
