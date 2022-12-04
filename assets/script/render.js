@@ -62,7 +62,6 @@ var forecastFiveHumidity = forecastFiveHumidity.querySelector("#p-humidity");
 
 
 function renderWeather() {
-  console.log(fetchData);
   var city = cityData[0].name;
   var currentWeatherDate = fetchData.list[0].dt_txt.substring(0,10);
     var currentYear = currentWeatherDate.substring(0,4);
@@ -72,7 +71,6 @@ function renderWeather() {
 
   var currentWeatherTemp = Math.round(fetchData.list[0].main.temp * 10) / 10;
   var currentInd = fetchData.list[0].weather[0].icon;
-  console.log(currentInd);
   var currentWeatherWind = fetchData.list[0].wind.speed;
   var currentWeatherHumidity = fetchData.list[0].main.humidity;
 
