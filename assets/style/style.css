@@ -9,7 +9,7 @@
   --darkBlueGray: rgba(50, 61, 79);
 }
 
-
+/* style navbar */
 #navbarContainer{
   display: flex;
   height: 75px;
@@ -18,7 +18,7 @@
   background-image: linear-gradient(to right, rgba(255,0,0,0),var(--lightBlue),var(--lightBlue), var(--darkBlue));
 }
 
-
+/* style the header */
 #headerSpan{
   font-family: var(--muktaFamily);
   padding: 0;
@@ -76,6 +76,7 @@ sidebar{
   transition: all 0.05s ease-in;
 }
 
+/* style the current city container */
 .current-city{
   color: var(--darkGray);
   /* height: 50%; */
@@ -100,7 +101,7 @@ h2{
   padding: 12px 0 12px;
 }
 
-
+/* style the cards for the five day forecast */
 #five-day-forecast{
   display: flexbox;
   height: 58%;
@@ -173,6 +174,7 @@ h5{
   transition: all 0.25s ease-in;
 }
 
+/* change the font size of the header and the current city container at 750px width and below */
 @media screen and (max-width: 750px) {
   #headerSpan{
     font-size: 1.8em;

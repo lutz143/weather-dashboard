@@ -1,9 +1,12 @@
+// capture relevant html elements to variables for further rendering/interactivity
 var sideBarEl = $(".sidebar");
 var sideBarLinkEl = document.querySelector("#sidebar-link-city");
 var searchBarEl = document.querySelector("#search-container");
 
+// create empty array to capture cities searched by user
 var searchCities = [];
 
+// render the cities that the user has searched for and are in their localStorage
 function renderCities(){  
   var cityNodeEl = document.createElement('div');   
   var cityNodeText = document.createElement('div');
@@ -20,9 +23,9 @@ function renderCities(){
     sideBarEl.append(cityNodeEl);
     cityNodeEl.append(cityNodeText);
   }
-
 }
 
+// unhide the search input bar after user selects search from sidebar
 $("#search-button").on("click", function(){
   var searchBarEl = document.querySelector('.search-bar');
   var hideEl = document.querySelector('.hide');
@@ -37,6 +40,7 @@ $("#search-button").on("click", function(){
   }
 })
 
+// when the user hits enter, add the city that was searched for into localStorage and fetch weather data and render
 searchBarEl.addEventListener("keypress", function(event) {
   var sideBarLinkEl = document.querySelector("#sidebar-link-city");
 
@@ -60,6 +64,7 @@ searchBarEl.addEventListener("keypress", function(event) {
   }
 })
 
+// clear localStorage and reload page if user selects 'clear' from sidebar menu
 $(document).ready(function() {
   $("#clear-button").on("click", function(){
     localStorage.clear();
@@ -67,6 +72,7 @@ $(document).ready(function() {
   })
 })
 
+// function to store searched cities that show in sidebar menu as well as last selected/searched for city
 function storeCities() {
   // Stringify and set key in localStorage to todos array
   localStorage.setItem("searchCities", JSON.stringify(searchCities));
@@ -74,6 +80,7 @@ function storeCities() {
 
 }
 
+// when the user hits the search icon, add the city that was searched for into localStorage and fetch weather data and render
 $(document).ready(function() {
   $(".search-icon").on("click", function(){
     var searchBarEl = document.querySelector('.search-bar');
@@ -93,15 +100,15 @@ $(document).ready(function() {
 
 // This function is being called below and will run when the page loads.
 function init() {
-  // Get stored todos from localStorage
+  // Get stored cities from localStorage
   var storedSearchCities = JSON.parse(localStorage.getItem("searchCities"));
   selectedCity = JSON.parse(localStorage.getItem("selectedCity"));
 
-  // If todos were retrieved from localStorage, update the todos array to it
+  // If cities were retrieved from localStorage, update the todos array to it
   if (storedSearchCities !== null) {
     searchCities = storedSearchCities;
   }
-
+  // render the cities to the page
   for (var i=0; i<searchCities.length; i++) {
     var searchCity = searchCities[i];
     var cityNodeEl = document.createElement('div');   

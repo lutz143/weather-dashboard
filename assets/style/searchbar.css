@@ -1,3 +1,6 @@
+/* style the search bar both as hidden until the user clicks search and as it is in focus */
+
+/* initially hide the search bar */
 .hide{
   display: none;
   transition: all 0.25s ease-in;
